@@ -1,0 +1,19 @@
+#pid{
+	color:white;
+	background-color:green;
+}
+.pclass{
+	color:black;
+	background-color:lightgray;
+}
+p{
+	color:darkblue;
+	background-color:lightyellow;
+}
+.group{
+	color:white;
+	background-color:purple;
+}
+*{
+	font-family:Arial, sans-serif;
+}

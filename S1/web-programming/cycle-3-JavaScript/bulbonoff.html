@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<title>Light Bulb ON/OFF</title>
+	</head>
+	<body>
+		<img id="lightbulb" height=320 width=180 src="bulb-off.png">
+		<br>
+		<button id="turnOn">Turn on the light</button>
+		<button id="turnOff">Turn off the light</button>
+		<script>
+			const lightbulb=document.getElementById('lightbulb');
+			const turnOn=document.getElementById('turnOn');
+			const turnOff=document.getElementById('turnOff');
+			turnOn.addEventListener('click',function(){
+				lightbulb.src='bulb-on.png';
+			});
+			turnOff.addEventListener('click',function(){
+				lightbulb.src='bulb-off.png';
+			});
+		</script>
+	</body>
+</html>

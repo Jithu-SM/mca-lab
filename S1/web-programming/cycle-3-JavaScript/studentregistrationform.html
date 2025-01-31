@@ -1,0 +1,190 @@
+<html>
+	<head>
+		<title>Student Registration</title>
+		<style>
+			.error{
+				color:red;
+			}
+		</style>
+	</head>
+	<body>
+		<h2 style="text-align:center;">STUDENT REGISTRATION FORM</h2>
+		<table border=3>
+			<form id="myForm" onsubmit="return validateForm()">
+				<tr>
+					<td><label for="fname">FIRST NAME</label>
+  					<td>
+  						<input type="text" name="fname" id="fname">(max 30 characters)
+	  					<span id="fnameError" class="error"></span>
+  					</td>
+  				</tr>
+  				<tr>
+					<td><label for="lname">LAST NAME</label>
+  					<td>
+  						<input type="text" name="lname" id="lname">(max 30 characters)
+	  					<span id="lnameError" class="error"></span>
+  					</td>
+  				</tr>
+  				<tr>
+					<td><label>DATE OF BIRTH</label>
+  					<td>
+  						<select name="day">
+							<option value="Day">Day</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+						</select>
+						<select name="month">
+							<option value="Day">Month</option>
+							<option value="1">January</option>
+							<option value="2">February</option>
+							<option value="3">March</option>
+							<option value="4">April</option>
+							<option value="5">May</option>
+							<option value="6">June</option>
+						</select>
+						<select name="year">
+							<option value="Year">Year</option>
+							<option value="1">2001</option>
+							<option value="2">2002</option>
+							<option value="3">2003</option>
+							<option value="4">2004</option>
+							<option value="5">2005</option>
+							<option value="6">2006</option>
+						</select>
+					</td>
+  				</tr>
+  				<tr>
+					<td><label for="email">EMAIL</label>
+  					<td>	
+  						<input type="text" id="email" name="email">
+  						<span id="emailError" class="error"></span>
+  					</td>
+  				</tr>
+  				<tr>
+					<td><label>MOBILE NUMBER</label>
+  					<td>
+  						<input type="tel" id="mobile" name="mobile">(10 digit number)
+  						<span id="mobileError" class="error"></span>
+  					</td>
+  				</tr>
+  				<tr>
+					<td><label>GENDER</label>
+  					<td>
+  						<label>Male</label><input type="radio" name="gender">
+  						<label>Female</label><input type="radio" name="gender">
+  					</td>
+  				</tr>
+  				<tr>
+  					<td><label>ADDRESS</label>
+  					<td><textarea rows=3></textarea></td>
+  				</tr>
+  				<tr>
+					<td><label>CITY</label>
+  					<td><input type="text">(max 30 characters)</td>
+  				</tr>
+  				<tr>
+					<td><label>PIN CODE</label>
+  					<td><input type="text">(6 digit number)</td>
+  				</tr>
+  				<tr>
+					<td><label>STATE</label>
+  					<td><input type="text">(max 30 characters)</td>
+  				</tr>
+  				<tr>
+					<td><label>COUNTRY</label>
+  					<td><input type="text" value="India">(max 30 characters)</td>
+  				</tr>
+  				<tr>
+					<td><label>HOBBIES</label>
+  					<td>
+  						<label>Drawing</label><input type="checkbox">
+  						<label>Singing</label><input type="checkbox">
+  						<label>Dancing</label><input type="checkbox">
+  						<label>Sketching</label><input type="checkbox"><br>
+  						<label>Others</label><input type="checkbox"><input type="text">
+  					</td>
+  				</tr>
+  				<tr>
+					<td><label>QUALIFICATION</label>
+  					<td>
+  						<table>
+							<tr>
+								<th>Sl.No</th>
+								<th>Examination</th>
+								<th>Board</th>
+								<th>Percentage</th>
+								<th>Year of Passing</th>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td><label>Class X</label></td>
+								<td><input type="text"></td>
+								<td><input type="text"></td>
+								<td><input type="text"></td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td><label>Class XII</label></td>
+								<td><input type="text"></td>
+								<td><input type="text"></td>
+								<td><input type="text"></td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td><label>Graduation</label></td>
+								<td><input type="text"></td>
+								<td><input type="text"></td>
+								<td><input type="text"></td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td><label>Masters</label></td>
+								<td><input type="text"></td>
+								<td><input type="text"></td>
+								<td><input type="text"></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td>(10 characters)</td>
+								<td>(upto 2 decimal)</td>
+  								<td></td>
+  							</tr>
+  						</table>
+  					</td>
+  								
+  				</tr>
+  				<tr>
+  					<td><label>COURSES<br>APPLIED FOR</label></td>
+  					<td>
+  						<label>MCA</label><input type="radio" name="course">
+  						<label>M. Tech</label><input type="radio" name="course">
+  						<label>M. Sc</label><input type="radio" name="course">
+  						<label>Ph. D</label><input type="radio" name="course">
+  					</td>
+  				</tr>
+  				<tr>
+  					<td><label>TYPE YOUR PASSWORD</label></td>
+  					<td><input type="password">(max 30 characters)</td>
+  				</tr>
+  				<tr>
+  					<td><label>UPLOAD YOUR PHOTO</label></td>
+  					<td><input type="file">
+  				</tr>
+  				<tr>
+  					<td><label>DATE OF TC</label></td>
+  					<td><input type="date" placeholder="dd-mm-yyyy"></td>
+  				</tr>
+  				<tr>
+  					<td colspan=2 style="text-align:center;">
+  					<input type="submit" value="Submit"><input type="reset">
+  				</tr>
+  			<form>
+  		</table>
+  		<script src="srfvalidate.js"></script>
+	</body>
+</html>

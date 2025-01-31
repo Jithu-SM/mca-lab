@@ -1,0 +1,15 @@
+<html>
+<head>
+	<title>Login</title>
+</head>
+<body>
+<?php if($error):?>
+	<p style="color:red;"><?=$error?></p>
+<?php endif ?>
+	<form method="post" action="login.php">
+		username:<input type="text" name="name"><br>
+		password:<input type="password" name="password"><br>
+		<input type="submit" value="Login">
+	</form>
+</body>
+</html>
