@@ -1,0 +1,7 @@
+num1=int(input("Enter first integer:"))
+num2=int(input("Enter second integer:"))
+print(f"{num1}+{num2}={ num1+num2 }")
+print(f"{num1}-{num2}={ num1-num2}")
+print(f"{num1}*{num2}={num1*num2}")
+print(f"{num1} / {num2} = {num1/num2}" if num2 != 0 else "Division by 0 is not alowed!")
+print(f"{num1}%{num2}={num1%num2}" if num2 != 0 else "Division by 0 is not alowed!")

@@ -1,0 +1,9 @@
+int_num=10
+float_num=10.5
+complex_num=2+3j
+print("int_num:",int_num)
+print("type:",type(int_num))
+print("float_num:",float_num)
+print("type:",type(float_num))
+print("complex_num:",complex_num)
+print("type:",type(complex_num))
