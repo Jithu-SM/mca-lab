@@ -1,1 +1,63 @@
+Enter number of products: 
+3
+Enter product code of product 0: 
+a1
+Enter product name of product 0: 
+abc
+Enter price of product 0: 
+10
+Enter product code of product 1: 
+a2
+Enter product name of product 1: 
+def
+Enter price of product 1: 
+20
+Enter product code of product 2: 
+a3
+Enter product name of product 2: 
+ghi
+Enter price of product 2: 
+5
+Item with lowest Price : 
+Product code: a3
+Product name: ghi
+Price: 5.0
 
+
+
+
+
+Enter two complex numbers:
+Enter real part:
+4
+Enter imaginary part:
+3
+Enter real part:
+2
+Enter imaginary part:
+1
+Complex no 1: 4.0 + i3.0
+Complex no 2: 2.0 + i1.0
+Sum: 6.0 + i4.0
+Product: 5.0 + i10.0
+
+
+
+
+
+Enter the number of rows and coloumns of first matrix: 
+3	2
+Enter the first matrix: 
+1	2
+2	3
+3	4
+Enter the number of rows and coloumns of second matrix: 
+3	2 
+Enter the second matrix: 
+1	2
+3	4
+5	6
+Sum: 
+2	4	
+5	7	
+8	10
