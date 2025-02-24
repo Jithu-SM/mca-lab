@@ -1,0 +1,78 @@
+Enter the number of Employees: 
+3
+Enter details for Employee 1:
+Employee Number: 1
+Employee Name: Akhil
+Employee Salary: 45000
+Enter details for Employee 2:
+Employee Number: 2
+Employee Name: Anshul
+Employee Salary: 40000
+Enter details for Employee 3:
+Employee Number: 3
+Employee Name: Ajin
+Employee Salary: 50000
+
+Enter Employee Number to search: 3
+
+Employee Found:
+Employee Number: 3
+Employee Name: Ajin
+Employee Salary: 50000.0
+
+
+
+Eneter the number of strings: 
+4
+Eneter the strings: 
+aaaa
+bbbb
+cccc
+dddd
+Eneter the string to search: 
+cccc
+Found at index: 2
+
+
+
+Enter a string: 
+hello
+lenngth: 5
+uppercase: HELLO
+lowercase: hello
+Enter an index to extract: 
+1
+charcter at 1 is e
+Enter a start and end index to substring: 
+1	4
+substring: ell
+
+
+
+Enter details for Literature Book:
+Enter publisher name: ABC
+Enter book title: Java
+Enter author name: Akhil
+Enter book price: 49.99
+Enter genre of the book: Action     
+
+Literature Book Details:
+Publisher Name: ABC
+Book Title: Java
+Author: Akhil
+Price: 49.99
+Genre: Action
+
+Enter details for Fiction Book:
+Enter publisher name: OOP
+Enter book title: OOPs
+Enter author name: Anshul 
+Enter book price: 59.99
+Enter category of the book: Fantasy
+
+Fiction Book Details:
+Publisher Name: OOP
+Book Title: OOPs
+Author: Anshul
+Price: 59.99
+Category: Fantasy
