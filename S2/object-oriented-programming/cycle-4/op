@@ -1,0 +1,157 @@
+Menu:
+1. Circle 
+2. Rectangle 
+3. Exit 
+Enter your choice:
+1
+Enter radius: 5
+Area: 78.53981633974483
+Perimeter: 31.41592653589793
+Menu:
+1. Circle 
+2. Rectangle 
+3. Exit 
+Enter your choice:
+2
+Enter length: 4
+Enter width: 5
+Area: 20.0
+Perimeter: 18.0
+Menu:
+1. Circle 
+2. Rectangle 
+3. Exit 
+Enter your choice:
+3
+Exiting program...
+
+
+
+
+
+
+
+
+Menu:
+1. Add Manager
+2. Add Developer
+3. Display Employees
+4. Assign Project to Manager
+5. Exit
+Enter your choice: 1
+Enter Manager Name: Anshul
+Enter Salary: 50000
+Enter Bonus: 5000
+Manager added successfully!
+
+Menu:
+1. Add Manager
+2. Add Developer
+3. Display Employees
+4. Assign Project to Manager
+5. Exit
+Enter your choice: 2
+Enter Developer Name: Akhil
+Enter Salary: 30000
+Enter Experience (years): 6
+Developer added successfully!
+
+Menu:
+1. Add Manager
+2. Add Developer
+3. Display Employees
+4. Assign Project to Manager
+5. Exit
+Enter your choice: 4
+Enter Manager Name: Anshul
+Enter Project Name: Java
+Enter Number of Team Members (0 if not applicable): 1
+Anshul is assigned to project: Java with 1 team members.
+
+Menu:
+1. Add Manager
+2. Add Developer
+3. Display Employees
+4. Assign Project to Manager
+5. Exit
+Enter your choice: 3
+
+Employee Details:
+Name: Anshul
+Total Salary: 55000.0
+Benefits: 5000.0
+
+
+Employee Details:
+Name: Akhil
+Total Salary: 36000.0
+Benefits: 3000.0
+
+
+Menu:
+1. Add Manager
+2. Add Developer
+3. Display Employees
+4. Assign Project to Manager
+5. Exit
+Enter your choice: 5
+Exiting program...
+
+
+
+
+
+
+
+
+
+Menu:
+1. Rectangle
+2. Triangle
+3. Square
+4. Circle
+5. Exit
+Enter your choice: 1
+Enter length: 4
+Enter width: 5
+Area: 20.0
+
+Menu:
+1. Rectangle
+2. Triangle
+3. Square
+4. Circle
+5. Exit
+Enter your choice: 2
+Enter base: 4
+Enter height: 5
+Area: 10.0
+
+Menu:
+1. Rectangle
+2. Triangle
+3. Square
+4. Circle
+5. Exit
+Enter your choice: 3
+Enter side: 4
+Area: 16.0
+
+Menu:
+1. Rectangle
+2. Triangle
+3. Square
+4. Circle
+5. Exit
+Enter your choice: 4
+Enter radius: 5
+Area: 78.53981633974483
+
+Menu:
+1. Rectangle
+2. Triangle
+3. Square
+4. Circle
+5. Exit
+Enter your choice: 5
+Exiting program...
