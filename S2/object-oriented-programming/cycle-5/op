@@ -1,0 +1,102 @@
+Enter filename:
+test.txt
+
+File Operations Menu:
+1. Write to File
+2. Append to File
+3. Read from File
+4. Exit
+Choose an option: 1
+Enter text to write to file: hello
+Data written successfully.
+
+File Operations Menu:
+1. Write to File
+2. Append to File
+3. Read from File
+4. Exit
+Choose an option: 2
+Enter text to append to file: java
+Data appended successfully.
+
+File Operations Menu:
+1. Write to File
+2. Append to File
+3. Read from File
+4. Exit
+Choose an option: 3
+File Content:
+hellojava
+
+File Operations Menu:
+1. Write to File
+2. Append to File
+3. Read from File
+4. Exit
+Choose an option: 4
+Exiting program...
+
+
+
+
+
+
+
+
+
+
+24mca28@mcaserver:~/s2/ooplab/cycle-5$ java ExceptionHandlingDemo 
+Enter the filename to read: test.txt
+
+File Contents:
+hellojava
+Enter username: admin
+Enter password: admin123
+Authentication successful! Access granted.
+24mca28@mcaserver:~/s2/ooplab/cycle-5$ java ExceptionHandlingDemo 
+Enter the filename to read: abc.txt
+Error: File 'abc.txt' not found.
+Enter username: java
+Enter password: java123
+Authentication failed: Invalid username or password.
+
+
+
+
+
+
+
+
+
+
+
+
+Enter the number of prime numbers to display: 10
+
+Multiplication Table of 5:
+
+First 10 Prime Numbers:
+2 
+5 x 1 = 5
+3 
+5 x 2 = 10
+5 
+7 
+5 x 3 = 15
+11 
+5 x 4 = 20
+13 
+17 
+5 x 5 = 25
+19 
+23 
+5 x 6 = 30
+29 
+5 x 7 = 35
+
+5 x 8 = 40
+5 x 9 = 45
+5 x 10 = 50
+
+Both threads have completed execution.
+
