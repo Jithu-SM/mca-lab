@@ -1,5 +1,3 @@
-#Jithu S
-#Roll No:28
 #!/bin/bash
 while true
 do

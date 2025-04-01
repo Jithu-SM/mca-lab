@@ -1,5 +1,3 @@
-#Jithu S
-#Roll no: 28
 #!/bin/bash
 factorial() {
     num=$1
