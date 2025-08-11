@@ -1,0 +1,171 @@
+% Experiment Template
+\textbf{Experiment No: 11 \hfill Date: 24/02/2025}
+\addcontentsline{toc}{section}{11. Inheritance in Java} 
+
+\begin{center}
+    \Large \subsection*{Inheritance in Java}
+\end{center}
+
+\textbf{Aim}
+\vspace{0.5cm}
+
+Write a Java program to implement hierarchical inheritance for a book management system. Define a base class ‘Publisher‘, a derived class ‘Book‘, and two subclasses ‘Literature‘ and ‘Fiction‘. Include methods to read and display book details and demonstrate the functionality using user input.
+
+\vspace{0.5cm}
+\textbf{Algorithm}
+\vspace{0.5cm}
+\begin{verbatim}
+1. Start
+2. Define the base class Publisher
+    Declare a variable publisherName.
+    Create a constructor to initialize publisherName.
+    Define a method displayPublisher() to print publisher details.
+3. Define the derived class Book (inherits from Publisher)
+    Declare variables title, author, and price.
+    Create a constructor to initialize these attributes and call the 
+    Publisher constructor.
+    Define a method displayBook() to print book details.
+4. Define the subclass Literature (inherits from Book)
+    Declare a variable genre.
+    Create a constructor to initialize all attributes and call the Book 
+    constructor.
+    Define a method displayDetails() to print literature book details.
+5. Define the subclass Fiction (inherits from Book)
+    Declare a variable category.
+    Create a constructor to initialize all attributes and call the Book 
+    constructor.
+    Define a method displayDetails() to print fiction book details.
+6. In the main method:
+    Accept input for a Literature book (Publisher, Title, Author, Price, 
+    Genre).
+    Accept input for a Fiction book (Publisher, Title, Author, Price, 
+    Category).
+    Create objects of Literature and Fiction.
+    Call their respective displayDetails() methods to print the details.
+7. Stop
+\end{verbatim}
+
+\vspace{0.5cm}
+\textbf{Source Code}
+\begin{lstlisting}[language=Java]
+import java.util.Scanner;
+class Publisher{
+    	String pname;
+    	public Publisher(String pname){
+        	this.pname = pname;
+    	}
+    	void display(){
+        	System.out.println("Publisher Name: " + pname);
+    	}
+}
+class Book extends Publisher{
+    	String title;
+    	String author;
+    	double price;
+    	public Book(String pname, String title, String author, double price) {
+        	super(pname);
+        	this.title = title;
+        	this.author = author;
+        	this.price = price;
+    	}
+    	void display(){
+        	super.display();
+        	System.out.println("Book Title: " + title);
+        	System.out.println("Author: " + author);
+        	System.out.println("Price: " + price);
+    	}
+}
+class Literature extends Book{
+    	String genre;
+    	public Literature(String pname, String title, String author, double price, String genre){
+        	super(pname, title, author, price);
+        	this.genre = genre;
+    	}
+    	void display(){
+        	super.display();
+        	System.out.println("Genre: " + genre);
+    	}
+}
+class Fiction extends Book{
+    	String category;
+    	public Fiction(String pname, String title, String author, double price, String category){
+        	super(pname, title, author, price);
+        	this.category = category;
+    	}
+    	void display(){
+        	super.display();
+        	System.out.println("Category: " + category);
+    	}
+}
+public class BookManagement{
+    	public static void main(String args[]){
+        	Scanner s = new Scanner(System.in);
+        	System.out.println("Enter details for Literature Book:");
+        	System.out.print("Enter publisher name: ");
+        	String pname = s.next();
+        	System.out.print("Enter book title: ");
+        	String title = s.next();
+        	System.out.print("Enter author name: ");
+        	String author = s.next();
+        	System.out.print("Enter book price: ");
+        	double price = s.nextDouble();
+        	System.out.print("Enter genre of the book: ");
+        	String genre = s.next();
+        	Literature literatureBook = new Literature(pname, title, author, price, genre);
+        	System.out.println("\nLiterature Book Details:");
+        	literatureBook.display();
+        	System.out.println("\nEnter details for Fiction Book:");
+        	System.out.print("Enter publisher name: ");
+        	pname = s.next();
+        	System.out.print("Enter book title: ");
+        	title = s.next();
+        	System.out.print("Enter author name: ");
+        	author = s.next();
+        	System.out.print("Enter book price: ");
+        	price = s.nextDouble();
+        	System.out.print("Enter category of the book: ");
+        	String category = s.next();
+        	Fiction fictionBook = new Fiction(pname, title, author, price, category);
+        	System.out.println("\nFiction Book Details:");
+        	fictionBook.display();
+    	}
+}
+\end{lstlisting}
+
+\vspace{0.5cm}
+\textbf{Result}
+\vspace{0.5cm}
+
+The program was executed successfully. 
+
+When details of a Literature book and a Fiction book were provided as input, the output was: Details of Literature and Fiction book details.
+\begin{verbatim}
+Enter details for Literature Book:
+Enter publisher name: ABC
+Enter book title: Java
+Enter author name: Akhil
+Enter book price: 49.99
+Enter genre of the book: Action     
+
+Literature Book Details:
+Publisher Name: ABC
+Book Title: Java
+Author: Akhil
+Price: 49.99
+Genre: Action
+
+Enter details for Fiction Book:
+Enter publisher name: OOP
+Enter book title: OOPs
+Enter author name: Anshul 
+Enter book price: 59.99
+Enter category of the book: Fantasy
+
+Fiction Book Details:
+Publisher Name: OOP
+Book Title: OOPs
+Author: Anshul
+Price: 59.99
+Category: Fantasy
+\end{verbatim}
+

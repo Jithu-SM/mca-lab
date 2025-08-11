@@ -1,0 +1,100 @@
+% Experiment Template
+\textbf{Experiment No: 6 \hfill Date: 17/02/2025}
+\addcontentsline{toc}{section}{6. Complex Number Operations} 
+
+\begin{center}
+    \Large \subsection*{Complex Number Operations}
+\end{center}
+
+\textbf{Aim}
+\vspace{0.5cm}
+
+Write a Java program to perform addition and multiplication of complex numbers, with inputs provided by the user.
+
+
+\vspace{0.5cm}
+\textbf{Algorithm}
+\vspace{0.5cm}
+\begin{verbatim}
+1. Start
+2. Define a class Complex with attributes:
+    real (Real part of the complex number)
+    imag (Imaginary part of the complex number)
+3. Create a constructor to initialize the complex number.
+4. Define methods:
+    add(Complex c): Adds two complex numbers.
+    multiply(Complex c): Multiplies two complex numbers.
+    display(): Prints the complex number in the form a + bi.
+5. In the main method:
+    Take user input for two complex numbers.
+    Perform addition and multiplication.
+    Display the results.
+6. Stop
+\end{verbatim}
+
+\vspace{0.5cm}
+\textbf{Source Code}
+\begin{lstlisting}[language=Java]
+import java.util.Scanner;
+public class Product{
+	String pcode,pname;
+	double price;
+	public Product(String pcode, String pname, double price){
+		this.pcode=pcode;
+		this.pname=pname;
+		this.price=price;
+	}
+	public static Product getLowestPrice(Product items[]){
+		Product lowest=items[0];
+		for(int i=1;i<items.length;i++){
+			if(items[i].price<lowest.price) lowest=items[i];
+		}
+		return lowest;
+	}
+	public void display(){
+		System.out.println("Product code: "+this.pcode+"\nProduct name: "+this.pname+"\nPrice: "+price);
+	}
+	public static void main(String args[]){
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter number of products: ");
+		int n=s.nextInt();
+		Product items[]=new Product[n];
+		for(int i=0;i<n;i++){
+			System.out.println("Enter product code of product "+i+": ");
+			String pcode=s.next();
+			System.out.println("Enter product name of product "+i+": ");
+			String pname=s.next();
+			System.out.println("Enter price of product "+i+": ");
+			double price=s.nextDouble();
+			items[i]= new Product(pcode,pname,price);
+		}
+		Product lowest=Product.getLowestPrice(items);
+		System.out.println("Item with lowest Price : ");
+		lowest.display();
+	}
+}
+\end{lstlisting}
+
+\vspace{0.5cm}
+\textbf{Result}
+\vspace{0.5cm}
+
+The program was executed successfully. 
+
+When the 2 complex numbers were provided as input, the output was: the sum and product of the complex numbers
+\begin{verbatim}
+Enter two complex numbers:
+Enter real part:
+4
+Enter imaginary part:
+3
+Enter real part:
+2
+Enter imaginary part:
+1
+Complex no 1: 4.0 + i3.0
+Complex no 2: 2.0 + i1.0
+Sum: 6.0 + i4.0
+Product: 5.0 + i10.0
+\end{verbatim}
+

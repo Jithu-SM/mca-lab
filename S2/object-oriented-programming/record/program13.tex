@@ -1,0 +1,239 @@
+% Experiment Template
+\textbf{Experiment No: 13 \hfill Date: 03/03/2025}
+\addcontentsline{toc}{section}{13. Program to Manage Employee Collection} 
+
+\begin{center}
+    \Large \subsection*{Program to Manage Employee Collection}
+\end{center}
+
+\textbf{Aim}
+\vspace{0.5cm}
+
+Create a Java program to manage a collection of employees in a company. Implement an abstract class Employee with fields name (String) and salary (double), and an abstract method calculateSalary(). Create two subclasses: Manager (with a bonus field) and Developer (with an experience field), both overriding calculateSalary() to calculate the total salary. Implement an interface Benefits with a method calculateBenefits(), where Manager provides a fixed insurance benefit and Developer provides an allowance based on experience. Use polymorphism to store Employee objects in a list and display employee details and salary. Add method overloading in Manager for project assignment, where one method takes just a project name and the other takes both the project name and the number of team members.
+
+\vspace{0.5cm}
+\textbf{Algorithm}
+\vspace{0.5cm}
+\begin{verbatim}
+1. Start
+2. Define the Abstract Class Employee:
+    Declare fields: name (String) and salary (double).
+    Define an abstract method calculateSalary().
+3. Create the Interface Benefits:
+    Define an abstract method calculateBenefits().
+4. Implement Manager Class (Extends Employee, Implements Benefits):
+    Add a field bonus (double).
+    Override calculateSalary() to include the bonus.
+    Implement calculateBenefits() with a fixed insurance amount.
+    Overload assignProject() method:
+        One method takes a project name.
+        Another takes both project name and team size.
+5. Implement Developer Class (Extends Employee, Implements Benefits):
+    Add a field experience (int).
+    Override calculateSalary() to increase salary based on experience.
+    Implement calculateBenefits() to return an experience-based allowance.
+6. Store Employees in a List and Use Polymorphism to Display Data:
+    Use an ArrayList<Employee> to store employees.
+    Iterate through the list, displaying details using polymorphism.
+7. Stop
+\end{verbatim}
+
+\vspace{0.5cm}
+\textbf{Source Code}
+\begin{lstlisting}[language=Java]
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+interface Benefits{
+	double calculateBenefits();
+}
+abstract class Employee{
+	protected String name;
+	protected double salary;
+	Employee(String name, double salary){
+		this.name=name;
+		this.salary=salary;
+	}
+	abstract double calculateSalary();
+	public void displayDetails(){
+		System.out.println("\nEmployee Details:");
+		System.out.println("Name: "+name);
+		System.out.println("Total Salary: "+calculateSalary());
+	}
+}
+class Manager extends Employee implements Benefits{
+	private double bonus;
+	Manager(String name,double salary,double bonus){
+		super(name,salary);
+		this.bonus=bonus;
+	}
+	double calculateSalary(){
+		return salary+bonus;
+	}
+	public double calculateBenefits(){
+		return 5000;
+	}
+	public void assignProject(String projectName){
+		System.out.println(name+" is assigned to project: "+projectName);
+	}
+	public void assignProject(String projectName,int teamMembers){
+		System.out.println(name+" is assigned to project: "+projectName+" with "+teamMembers+" team members.");
+	}
+}
+class Developer extends Employee implements Benefits{
+	private int experience;
+	Developer(String name,double salary,int experience){
+		super(name,salary);
+		this.experience=experience;
+	}
+	double calculateSalary(){
+		return salary+(experience*1000);
+	}
+	public double calculateBenefits(){
+		return experience*500;
+	}
+}
+public class EmployeeManagement{
+	public static void main(String args[]){
+		Scanner s=new Scanner(System.in);
+		List<Employee> employees=new ArrayList<>();
+		int choice;
+		do{
+			System.out.println("\nMenu:");
+			System.out.println("1. Add Manager");
+			System.out.println("2. Add Developer");
+			System.out.println("3. Display Employees");
+			System.out.println("4. Assign Project to Manager");
+			System.out.println("5. Exit");
+			System.out.print("Enter your choice: ");
+			choice=s.nextInt();
+			switch(choice){
+				case 1:System.out.print("Enter Manager Name: ");
+					String mName=s.next();
+					System.out.print("Enter Salary: ");
+					double mSalary=s.nextDouble();
+					System.out.print("Enter Bonus: ");
+					double mBonus=s.nextDouble();
+					employees.add(new Manager(mName,mSalary,mBonus));
+					System.out.println("Manager added successfully!");
+					break;
+				case 2:System.out.print("Enter Developer Name: ");
+					String dName=s.next();
+					System.out.print("Enter Salary: ");
+					double dSalary=s.nextDouble();
+					System.out.print("Enter Experience (years): ");
+					int dExperience=s.nextInt();
+					employees.add(new Developer(dName,dSalary,dExperience));
+					System.out.println("Developer added successfully!");
+					break;
+				case 3:if(employees.isEmpty()) System.out.println("No employees to display.");
+					else{
+						for(Employee emp:employees){
+							emp.displayDetails();
+							if(emp instanceof Benefits) System.out.println("Benefits: "+((Benefits) emp).calculateBenefits());
+							System.out.println();
+						}
+					}
+					break;
+				case 4:System.out.print("Enter Manager Name: ");
+					String managerName=s.next();
+					boolean found=false;
+					for(Employee emp:employees){
+						if(emp instanceof Manager && emp.name.equals(managerName)) {
+							Manager manager=(Manager) emp;
+							System.out.print("Enter Project Name: ");
+							String projectName=s.next();
+							System.out.print("Enter Number of Team Members (0 if not applicable): ");
+							int teamMembers=s.nextInt();
+							if(teamMembers>0) manager.assignProject(projectName,teamMembers);
+							else manager.assignProject(projectName);
+							found=true;
+							break;
+						}
+					}
+					if(!found) System.out.println("Manager not found!");
+					break;
+				case 5:System.out.println("Exiting program...");
+					break;
+				default:System.out.println("Invalid choice! Try again.");
+			}
+		}while(choice!=5);
+	}
+}
+\end{lstlisting}
+
+\vspace{0.5cm}
+\textbf{Result}
+\vspace{0.5cm}
+
+The program was executed successfully. 
+
+When the manager and developer details were provided as input, the output was: employee details.
+\begin{verbatim}
+Menu:
+1. Add Manager
+2. Add Developer
+3. Display Employees
+4. Assign Project to Manager
+5. Exit
+Enter your choice: 1
+Enter Manager Name: Anshul
+Enter Salary: 50000
+Enter Bonus: 5000
+Manager added successfully!
+
+Menu:
+1. Add Manager
+2. Add Developer
+3. Display Employees
+4. Assign Project to Manager
+5. Exit
+Enter your choice: 2
+Enter Developer Name: Akhil
+Enter Salary: 30000
+Enter Experience (years): 6
+Developer added successfully!
+
+Menu:
+1. Add Manager
+2. Add Developer
+3. Display Employees
+4. Assign Project to Manager
+5. Exit
+Enter your choice: 4
+Enter Manager Name: Anshul
+Enter Project Name: Java
+Enter Number of Team Members (0 if not applicable): 1
+Anshul is assigned to project: Java with 1 team members.
+
+Menu:
+1. Add Manager
+2. Add Developer
+3. Display Employees
+4. Assign Project to Manager
+5. Exit
+Enter your choice: 3
+
+Employee Details:
+Name: Anshul
+Total Salary: 55000.0
+Benefits: 5000.0
+
+
+Employee Details:
+Name: Akhil
+Total Salary: 36000.0
+Benefits: 3000.0
+
+
+Menu:
+1. Add Manager
+2. Add Developer
+3. Display Employees
+4. Assign Project to Manager
+5. Exit
+Enter your choice: 5
+Exiting program...
+
+\end{verbatim}
+

@@ -1,0 +1,62 @@
+% Experiment Template
+\textbf{Experiment No: 4 \hfill Date: 10/02/2025}
+\addcontentsline{toc}{section}{4. Assigning Grades Based on Numeric Score} 
+
+\begin{center}
+    \Large \subsection*{Assigning Grades Based on Numeric Score}
+\end{center}
+
+\textbf{Aim}
+\vspace{0.5cm}
+
+Write a Java program that assigns a grade based on a numeric score.
+
+\vspace{0.5cm}
+\textbf{Algorithm}
+\vspace{0.5cm}
+\begin{verbatim}
+1. Start
+2. Take a numeric score (0–100) as input from the user.
+3. Use either an if-else if-else structure or a switch-case statement to 
+   assign a
+    grade:
+        • 90-100 → A
+        • 80-89 → B
+        • 70-79 → C
+        • 60-69 → D
+        • Below 60 → F
+4. Print the assigned grade.
+5. Stop
+\end{verbatim}
+
+\vspace{0.5cm}
+\textbf{Source Code}
+\begin{lstlisting}[language=Java]
+import java.util.Scanner;
+public class Grades{
+        public static void main(String args[]){
+                Scanner s=new Scanner(System.in);
+                System.out.print("Enter score:");
+                int score=s.nextInt();
+                if(score>=90) System.out.println("Grade : A");
+                else if(score>=80) System.out.println("Grade : B");
+                else if(score>=70) System.out.println("Grade : C");
+                else if(score>=60) System.out.println("Grade : D");
+                else if(score<60) System.out.println("Grade : F");
+                else System.out.println("Invalid Score");
+        }
+}
+\end{lstlisting}
+
+\vspace{0.5cm}
+\textbf{Result}
+\vspace{0.5cm}
+
+The program was executed successfully. 
+
+When the input "89" was provided, the output was: "Grade : B"
+\begin{verbatim}
+Enter score:89 
+Grade : B
+\end{verbatim}
+

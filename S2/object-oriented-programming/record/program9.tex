@@ -1,0 +1,81 @@
+% Experiment Template
+\textbf{Experiment No: 9 \hfill Date: 24/02/2025}
+\addcontentsline{toc}{section}{9. String Search in an Array} 
+
+\begin{center}
+    \Large \subsection*{String Search in an Array}
+\end{center}
+
+\textbf{Aim}
+\vspace{0.5cm}
+
+Write a Java program to store ‘n‘ strings in an array. Search for a given string. If found, print its index; otherwise, display ”String not found.”
+
+\vspace{0.5cm}
+\textbf{Algorithm}
+\vspace{0.5cm}
+\begin{verbatim}
+1. Start
+2. Accept the number of strings (n) from the user.
+3. Declare an array of size n to store the strings.
+4. Loop from i = 0 to n-1 to accept n strings from the user and store them 
+   in the array.
+5. Accept the string to search (searchString).
+6. Initialize a variable index = -1 (to store the position if found).
+7. Loop through the array from i = 0 to n-1:
+    If array[i] is equal to searchString, store i in index and break the 
+    loop.
+8. If index is not -1, print "String found at index: index".
+9. Otherwise, print "String not found."
+10. Stop
+\end{verbatim}
+
+\vspace{0.5cm}
+\textbf{Source Code}
+\begin{lstlisting}[language=Java]
+import java.util.Scanner;
+import java.util.ArrayList;
+public class StringIndex{
+	public static void main(String args[]){
+		Scanner s = new Scanner(System.in);
+		ArrayList<String> str=new ArrayList<>();
+		System.out.println("Eneter the number of strings: ");
+		int n = s.nextInt();
+		System.out.println("Eneter the strings: ");
+		for(int i = 0; i < n; i++)
+			str.add(s.next());
+		System.out.println("Enter the string to search: ");
+		String key=s.next();
+		boolean found=false;
+		for(int i = 0; i < n; i++){
+			if(str.get(i).equals(key)){
+				System.out.println("Found at index: "+i);
+				found=true;
+				break;
+			}
+		}
+		if(!found) System.out.println("String not found!");
+	}
+}
+\end{lstlisting}
+
+\vspace{0.5cm}
+\textbf{Result}
+\vspace{0.5cm}
+
+The program was executed successfully. 
+
+When the string "cccc" were provided as input, the output was: "Found at index: 2"
+\begin{verbatim}
+Eneter the number of strings: 
+4
+Eneter the strings: 
+aaaa
+bbbb
+cccc
+dddd
+Enter the string to search: 
+cccc
+Found at index: 2
+\end{verbatim}
+

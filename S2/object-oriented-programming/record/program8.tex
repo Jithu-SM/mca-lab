@@ -1,0 +1,115 @@
+% Experiment Template
+\textbf{Experiment No: 8 \hfill Date: 24/02/2025}
+\addcontentsline{toc}{section}{8. Employee Search Using an Array of Objects} 
+
+\begin{center}
+    \Large \subsection*{Employee Search Using an Array of Objects}
+\end{center}
+
+\textbf{Aim}
+\vspace{0.5cm}
+
+Write a Java program to store employee details including employee number, name, and salary, and search for an employee by employee number.
+
+\vspace{0.5cm}
+\textbf{Algorithm}
+\vspace{0.5cm}
+\begin{verbatim}
+1. Start
+2. Create a class Employee with attributes:
+    empNo (int)
+    name (String)
+    salary (double)
+3. Define a constructor to initialize employee details.
+4. Create a class EmployeeManagement that:
+    Uses an ArrayList<Employee> to store employee details.
+    Has a method addEmployee() to add employees.
+    Has a method searchEmployeeByNumber(int empNo) to find an employee by
+    their number.
+5. In the main() method:
+    Create an instance of EmployeeManagement.
+    Add multiple employees to the list.
+    Prompt the user to enter an employee number for search.
+    Display employee details if found, otherwise print "Employee not 
+    found".
+6. Stop
+\end{verbatim}
+
+\vspace{0.5cm}
+\textbf{Source Code}
+\begin{lstlisting}[language=Java]
+import java.util.Scanner;
+import java.util.ArrayList;
+class Employee{
+	int empNumber;
+	String name;
+	double salary;
+	public Employee(int empNumber, String name, double salary){
+        	this.empNumber = empNumber;
+        	this.name = name;
+        	this.salary = salary;
+	}
+	public static void main(String args[]){
+	       	Scanner s = new Scanner(System.in);
+		ArrayList<Employee> employees = new ArrayList<>();
+		System.out.println("Enter the number of Employees: ");
+		int n=s.nextInt();
+        	for (int i = 0; i < n; i++){
+            		System.out.println("Enter details for Employee " + (i + 1) + ":");
+            		System.out.print("Employee Number: ");
+            		int empNumber = s.nextInt();
+            		System.out.print("Employee Name: ");
+            		String name = s.next();
+            		System.out.print("Employee Salary: ");
+            		double salary = s.nextDouble();
+			employees.add(new Employee(empNumber, name, salary));
+		}
+        	System.out.print("\nEnter Employee Number to search: ");
+        	int searchEmpNumber = s.nextInt();
+        	boolean found = false;
+        	for (Employee emp : employees) {
+            		if (emp.empNumber == searchEmpNumber) {
+                		System.out.println("\nEmployee Found:");
+                		System.out.println("Employee Number: " + emp.empNumber);
+                		System.out.println("Employee Name: " + emp.name);
+                		System.out.println("Employee Salary: " + emp.salary);
+                		found = true;
+                		break;
+            		}
+        	}
+        	if (!found) System.out.println("Employee with Employee Number " + searchEmpNumber + " not found.");
+    }
+}
+\end{lstlisting}
+
+\vspace{0.5cm}
+\textbf{Result}
+\vspace{0.5cm}
+
+The program was executed successfully. 
+
+When employee number 3 were provided as input, the output was: details of employee with employee number 3.
+\begin{verbatim}
+Enter the number of Employees: 
+3
+Enter details for Employee 1:
+Employee Number: 1
+Employee Name: Akhil
+Employee Salary: 45000
+Enter details for Employee 2:
+Employee Number: 2
+Employee Name: Anshul
+Employee Salary: 40000
+Enter details for Employee 3:
+Employee Number: 3
+Employee Name: Ajin
+Employee Salary: 50000
+
+Enter Employee Number to search: 3
+
+Employee Found:
+Employee Number: 3
+Employee Name: Ajin
+Employee Salary: 50000.0
+\end{verbatim}
+

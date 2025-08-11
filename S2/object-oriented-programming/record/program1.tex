@@ -1,0 +1,51 @@
+% Experiment Template
+\textbf{Experiment No: 1 \hfill Date: 10/02/2025}
+\addcontentsline{toc}{section}{1. Even-Odd Classification} 
+
+\begin{center}
+    \Large \subsection*{Even-Odd Classification}
+\end{center}
+
+\textbf{Aim}
+\vspace{0.5cm}
+
+Write a Java program to check whether an input number is even or odd.
+
+\vspace{0.5cm}
+\textbf{Algorithm}
+\vspace{0.5cm}
+\begin{verbatim}
+1. Start
+2. Take an integer as input from the user.
+3. Use an if-else statement to check if the number is even or odd.
+4. Print the result accordingly.
+5. Stop
+\end{verbatim}
+
+\vspace{0.5cm}
+\textbf{Source Code}
+\begin{lstlisting}[language=Java]
+import java.util.Scanner;
+public class EvenOdd{
+        public static void main(String args[]){
+                Scanner s=new Scanner(System.in);
+                System.out.print("Enter a number: ");
+                int n=s.nextInt();
+                if(n%2==0) System.out.println(n+" is an even number");
+                else System.out.println(n+" is an odd number");
+        }
+}
+\end{lstlisting}
+
+\vspace{0.5cm}
+\textbf{Result}
+\vspace{0.5cm}
+
+The program was executed successfully. 
+
+When the input "567" was provided, the output was: "567 is an odd number"
+\begin{verbatim}
+Enter a number: 567
+567 is an odd number
+\end{verbatim}
+

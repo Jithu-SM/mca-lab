@@ -1,0 +1,139 @@
+% Experiment Template
+\textbf{Experiment No: 17 \hfill Date: 17/03/2025}
+\addcontentsline{toc}{section}{17. Multithreading} 
+
+\begin{center}
+    \Large \subsection*{Multithreading}
+\end{center}
+
+\textbf{Aim}
+\vspace{0.5cm}
+
+Write a Java program that defines two classes: one for generating and displaying the multiplication table of 5 and another for printing the first N prime numbers. Implement bothclasses using multithreading, demonstrating both approaches—by extending the Thread class and implementing the Runnable interface. Ensure proper thread management and synchronization if needed.
+
+\vspace{0.5cm}
+\textbf{Algorithm}
+\vspace{0.5cm}
+\begin{verbatim}
+1. Start
+2. Create a class MultiplicationTable that extends Thread.
+    Override the run() method to print the multiplication table of 5 
+    (from 1 to 10).
+3. Create a class PrimeNumbers that implements Runnable.
+    Define a method to generate the first N prime numbers.
+    Implement the run() method to call this function.
+4. In the main() method,
+    Create an instance of MultiplicationTable and start the thread.
+    Create an instance of PrimeNumbers, wrap it in a Thread object, and 
+    start the thread.
+5. Stop
+\end{verbatim}
+
+\vspace{0.5cm}
+\textbf{Source Code}
+
+\begin{lstlisting}[language=Java]
+import java.util.Scanner;
+class MultiplicationTable extends Thread{
+	public void run(){
+		System.out.println("\nMultiplication Table of 5:");
+		for(int i=1;i<=10;i++){
+			System.out.println("5 x "+i+" = "+(5*i));
+			try{
+				Thread.sleep(500);
+			}catch(InterruptedException e){
+				System.out.println("Multiplication thread interrupted.");
+			}
+		}
+	}
+}
+class PrimeNumbers implements Runnable{
+	private int N;
+	public PrimeNumbers(int N){
+		this.N=N;
+	}
+	public void run(){
+		System.out.println("\nFirst "+N+" Prime Numbers:");
+		int count=0,num=2;
+		while(count<N){
+			if(isPrime(num)){
+				System.out.println(num+" ");
+				count++;
+				try{
+					Thread.sleep(300);
+				}catch(InterruptedException e){
+					System.out.println("Prime number thread interrupted.");
+				}
+			}
+			num++;
+		}
+		System.out.println();
+	}
+	private boolean isPrime(int num){
+		if(num<2) return false;
+		for(int i=2;i<=Math.sqrt(num);i++){
+			if(num%i==0) return false;
+		}
+		return true;
+	}
+}
+public class MultiThreadDemo{
+	public static void main(String args[]){
+		Scanner s=new Scanner(System.in);
+		System.out.print("Enter the number of prime numbers to display: ");
+		int N=s.nextInt();
+		s.close();
+		MultiplicationTable multiplicationThread=new MultiplicationTable();
+		Thread primeThread=new Thread(new PrimeNumbers(N));
+		multiplicationThread.start();
+		primeThread.start();
+		try{
+			multiplicationThread.join();
+			primeThread.join();
+		}catch(InterruptedException e){
+			System.out.println("Main thread interrupted.");
+		}
+		System.out.println("\nBoth threads have completed execution.");
+	}
+}
+\end{lstlisting}
+
+\vspace{0.5cm}
+\textbf{Result}
+\vspace{0.5cm}
+
+The program was executed successfully. 
+
+When the number of prime numbers to display: 10 were provided as input, the output was: mixed lines with multiplication table of 5 and first 10 prime numbers.
+\begin{verbatim}
+Enter the number of prime numbers to display: 10
+
+Multiplication Table of 5:
+
+First 10 Prime Numbers:
+2 
+5 x 1 = 5
+3 
+5 x 2 = 10
+5 
+7 
+5 x 3 = 15
+11 
+5 x 4 = 20
+13 
+17 
+5 x 5 = 25
+19 
+23 
+5 x 6 = 30
+29 
+5 x 7 = 35
+
+5 x 8 = 40
+5 x 9 = 45
+5 x 10 = 50
+
+Both threads have completed execution.
+
+\end{verbatim}
+

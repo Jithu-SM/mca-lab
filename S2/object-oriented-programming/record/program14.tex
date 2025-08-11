@@ -1,0 +1,209 @@
+% Experiment Template
+\textbf{Experiment No: 14 \hfill Date: 03/03/2025}
+\addcontentsline{toc}{section}{14. Graphics Package for Geometric Figures} 
+
+\begin{center}
+    \Large \subsection*{Graphics Package for Geometric Figures}
+\end{center}
+
+\textbf{Aim}
+\vspace{0.5cm}
+
+Create a Graphics package that contains classes and interfaces for geometric figures such as ‘Rectangle‘, ‘Triangle‘, ‘Square‘, and ‘Circle‘. Test the package by finding the area of these figures.
+
+\vspace{0.5cm}
+\textbf{Algorithm}
+\vspace{0.5cm}
+\begin{verbatim}
+1. Start
+2. Create a Package graphics
+    Define an interface Shape with an abstract method area().
+    Implement classes: Rectangle, Triangle, Square, and Circle, each 
+    implementing Shape and overriding area().
+3. Test the Package in a Separate Class
+    Import graphics package.
+    Create objects for each shape and calculate their areas.
+4. Stop
+\end{verbatim}
+
+\vspace{0.5cm}
+\textbf{Source Code}
+
+graphics/Shape.java
+\begin{lstlisting}[language=Java]
+package Graphics;
+public interface Shape{
+	double area();
+}
+\end{lstlisting}
+
+graphics/Circle.java
+\begin{lstlisting}[language=Java]
+package Graphics;
+public class Circle implements Shape{
+	private double radius;
+	public Circle(double radius){
+		this.radius=radius;
+	}
+	public double area(){
+		return Math.PI*radius*radius;
+	}
+}
+\end{lstlisting}
+
+graphics/Rectangle.java
+\begin{lstlisting}[language=Java]
+package Graphics;
+public class Rectangle implements Shape{
+	private double length,width;
+	public Rectangle(double length,double width){
+		this.length=length;
+		this.width=width;
+	}
+	public double area(){
+		return length*width;
+	}
+}
+\end{lstlisting}
+
+graphics/Square.java
+\begin{lstlisting}[language=Java]
+package Graphics;
+public class Square implements Shape{
+	private double side;
+	public Square(double side){
+		this.side=side;
+	}
+	public double area(){
+		return side*side;
+	}
+}
+\end{lstlisting}
+
+graphics/Triangle.java
+\begin{lstlisting}[language=Java]
+package Graphics;
+public class Triangle implements Shape{
+	private double base,height;
+	public Triangle(double base,double height){
+		this.base=base;
+		this.height=height;
+	}
+	public double area(){
+		return 0.5*base*height;
+	}
+}
+\end{lstlisting}
+
+GraphicsPackage.java
+\begin{lstlisting}[language=Java]
+import Graphics.*;
+import java.util.Scanner;
+public class GraphicsPackage{
+	public static void main(String args[]){
+		Scanner s=new Scanner(System.in);
+		int choice;
+		do{
+			System.out.println("\nMenu:");
+			System.out.println("1. Rectangle");
+			System.out.println("2. Triangle");
+			System.out.println("3. Square");
+			System.out.println("4. Circle");
+			System.out.println("5. Exit");
+			System.out.print("Enter your choice: ");
+			choice=s.nextInt();
+			switch(choice){
+				case 1:System.out.print("Enter length: ");
+					double length=s.nextDouble();
+					System.out.print("Enter width: ");
+					double width=s.nextDouble();
+					Rectangle rectangle=new Rectangle(length, width);
+					System.out.println("Area: "+rectangle.area());
+					break;
+				case 2:System.out.print("Enter base: ");
+					double base=s.nextDouble();
+					System.out.print("Enter height: ");
+					double height=s.nextDouble();
+					Triangle triangle=new Triangle(base, height);
+					System.out.println("Area: "+triangle.area());
+					break;
+				case 3:System.out.print("Enter side: ");
+					double side=s.nextDouble();
+					Square square=new Square(side);
+					System.out.println("Area: "+square.area());
+					break;
+				case 4:System.out.print("Enter radius: ");
+					double radius=s.nextDouble();
+					Circle circle=new Circle(radius);
+					System.out.println("Area: "+circle.area());
+					break;
+				case 5:System.out.println("Exiting program...");
+					break;
+				default:System.out.println("Invalid choice! Try again.");
+			}
+		}while(choice!=5);
+	}
+}
+\end{lstlisting}
+
+\vspace{0.5cm}
+\textbf{Result}
+\vspace{0.5cm}
+
+The program was executed successfully. 
+
+When the shape is selected and corresponding data were provided as input, the output was: the area of the shape selected.
+\begin{verbatim}
+Menu:
+1. Rectangle
+2. Triangle
+3. Square
+4. Circle
+5. Exit
+Enter your choice: 1
+Enter length: 4
+Enter width: 5
+Area: 20.0
+
+Menu:
+1. Rectangle
+2. Triangle
+3. Square
+4. Circle
+5. Exit
+Enter your choice: 2
+Enter base: 4
+Enter height: 5
+Area: 10.0
+
+Menu:
+1. Rectangle
+2. Triangle
+3. Square
+4. Circle
+5. Exit
+Enter your choice: 3
+Enter side: 4
+Area: 16.0
+
+Menu:
+1. Rectangle
+2. Triangle
+3. Square
+4. Circle
+5. Exit
+Enter your choice: 4
+Enter radius: 5
+Area: 78.53981633974483
+
+Menu:
+1. Rectangle
+2. Triangle
+3. Square
+4. Circle
+5. Exit
+Enter your choice: 5
+Exiting program...
+
+\end{verbatim}
+

@@ -1,0 +1,153 @@
+% Experiment Template
+\textbf{Experiment No: 12 \hfill Date: 03/03/2025}
+\addcontentsline{toc}{section}{12. Calculate Area and Perimeter Using Interfaces} 
+
+\begin{center}
+    \Large \subsection*{Calculate Area and Perimeter Using Interfaces}
+\end{center}
+
+\textbf{Aim}
+\vspace{0.5cm}
+
+Write a Java Program to create an interface having prototypes of functions ‘area()‘ and ‘perimeter()‘. Create two classes ‘Circle‘ and ‘Rectangle‘ which implement the above interface. Develop a menu-driven program to find the area and perimeter of these shapes.
+
+\vspace{0.5cm}
+\textbf{Algorithm}
+\vspace{0.5cm}
+\begin{verbatim}
+1. Start
+2. Create an interface Shape with method prototypes for area() and 
+   perimeter().
+3. Create a Circle class that implements Shape.
+    Implement the area() and perimeter() methods for a circle using the 
+    formulae:
+\end{verbatim}
+\[
+\text{Area} = \pi r^2
+\]
+\[
+\text{Perimeter} = 2\pi r
+\]
+\begin{verbatim}
+4. Create a Rectangle class that implements Shape.
+    Implement the area() and perimeter() methods using the formulae:
+\end{verbatim}
+\[
+\text{Area} = l \times w
+\]
+\[
+\text{Perimeter} = 2(l + w)
+\]
+\begin{verbatim}
+5. Develop a Menu-Driven Program:
+    Use a loop to repeatedly display options to the user:
+        Find area and perimeter of a Circle
+        Find area and perimeter of a Rectangle
+        Exit
+    Based on user input, prompt for required values (radius, length, 
+    breadth) 
+    and display the computed area and perimeter.
+    Continue until the user chooses to exit.
+6. Stop
+\end{verbatim}
+
+\vspace{0.5cm}
+\textbf{Source Code}
+\begin{lstlisting}[language=Java]
+import java.util.Scanner;
+interface Shape{
+	double area();
+	double perimeter();
+}
+class Circle implements Shape{
+	private double radius;
+	Circle(double radius){
+		this.radius=radius;
+	}
+	public double area(){
+		return Math.PI*radius*radius;
+	}
+	public double perimeter(){
+		return 2*Math.PI*radius;
+	}
+}
+class Rectangle implements Shape{
+	private double length,width;
+	Rectangle(double length,double width){
+		this.length=length;
+		this.width=width;
+	}
+	public double area(){
+		return length*width;
+	}
+	public double perimeter(){
+		return 2*(length+width);
+	}
+}
+public class ShapeCalculator{
+	public static void main(String args[]){
+		Scanner s=new Scanner(System.in);
+		int choice;
+		do{
+			System.out.println("Menu:\n1. Circle \n2. Rectangle \n3. Exit \nEnter your choice:");
+			choice=s.nextInt();
+			switch(choice){
+				case 1:System.out.print("Enter radius: ");
+					double radius=s.nextDouble();
+					Circle circle=new Circle(radius);
+					System.out.println("Area: "+circle.area());
+					System.out.println("Perimeter: "+circle.perimeter());
+					break;
+				case 2:System.out.print("Enter length: ");
+					double length=s.nextDouble();
+					System.out.print("Enter width: ");
+					double width=s.nextDouble();
+					Rectangle rectangle=new Rectangle(length,width);
+					System.out.println("Area: "+rectangle.area());
+					System.out.println("Perimeter: "+rectangle.perimeter());
+					break;
+				case 3:System.out.println("Exiting program...");
+					break;
+				default:System.out.println("Invalid choice!");
+			}
+		}while(choice!=3);
+	}
+}
+\end{lstlisting}
+
+\vspace{0.5cm}
+\textbf{Result}
+\vspace{0.5cm}
+
+The program was executed successfully. 
+
+When the circle radius or rectangle length and width were provided as input, the output was: corresponding area and perimeter of the shape selected.
+\begin{verbatim}
+Menu:
+1. Circle 
+2. Rectangle 
+3. Exit 
+Enter your choice:
+1
+Enter radius: 5
+Area: 78.53981633974483
+Perimeter: 31.41592653589793
+Menu:
+1. Circle 
+2. Rectangle 
+3. Exit 
+Enter your choice:
+2
+Enter length: 4
+Enter width: 5
+Area: 20.0
+Perimeter: 18.0
+Menu:
+1. Circle 
+2. Rectangle 
+3. Exit 
+Enter your choice:
+3
+Exiting program...
+\end{verbatim}
+

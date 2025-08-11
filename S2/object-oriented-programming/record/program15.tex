@@ -1,0 +1,157 @@
+% Experiment Template
+\textbf{Experiment No: 15 \hfill Date: 17/03/2025}
+\addcontentsline{toc}{section}{15. File Operations in Java} 
+
+\begin{center}
+    \Large \subsection*{File Operations in Java}
+\end{center}
+
+\textbf{Aim}
+\vspace{0.5cm}
+
+Write a program that performs various file operations such as reading, writing, and appending data to a file.
+
+\vspace{0.5cm}
+\textbf{Algorithm}
+\vspace{0.5cm}
+\begin{verbatim}
+1. Start
+2. Display menu with options: Read, Write, Append, Exit
+3. Get user choice
+4. If choice is "Write"
+    Open the file in write mode (w)
+    Take input from the user
+    Write data to the file
+    Close the file
+5. If choice is "Read"
+    Open the file in read mode (r)
+    Read and display the file content
+    Close the file
+6. If choice is "Append"
+    Open the file in append mode (a)
+    Take input from the user
+    Append data to the file
+    Close the file
+7. If choice is "Exit", terminate the program
+8. Repeat steps 2-7 until the user exits
+9. Stop
+\end{verbatim}
+
+\vspace{0.5cm}
+\textbf{Source Code}
+
+\begin{lstlisting}[language=Java]
+import java.io.*;
+import java.util.Scanner;
+public class FileOperations{
+	public static String filename=new String();
+	public static void main(String args[]){
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter filename:");
+		filename=s.next();
+		while(true){
+			System.out.println("\nFile Operations Menu:");
+			System.out.println("1. Write to File");
+			System.out.println("2. Append to File");
+			System.out.println("3. Read from File");
+			System.out.println("4. Exit");
+			System.out.print("Choose an option: ");
+			int choice=s.nextInt();
+			switch(choice){
+				case 1:System.out.print("Enter text to write to file: ");
+					String writeData=s.next();
+					writeToFile(writeData);
+					break;
+				case 2:System.out.print("Enter text to append to file: ");
+					String appendData=s.next();
+					appendToFile(appendData);
+					break;
+				case 3:readFromFile();
+					break;
+				case 4:System.out.println("Exiting program...");
+					return;
+				default:System.out.println("Invalid choice! Please choose a valid option.");
+			}
+		}
+	}
+	private static void writeToFile(String data){
+		try(FileWriter writer=new FileWriter(filename)){
+			writer.write(data);
+			System.out.println("Data written successfully.");
+		}catch(IOException e){
+			System.out.println("An error occurred while writing to the file.");
+			e.printStackTrace();
+		}
+	}
+	private static void appendToFile(String data){
+		try(FileWriter writer=new FileWriter(filename,true)){
+			writer.write(data+"\n");
+			System.out.println("Data appended successfully.");
+		}catch(IOException e){
+			System.out.println("An error occurred while appending to the file.");
+			e.printStackTrace();
+		}
+	}
+	private static void readFromFile(){
+		try(BufferedReader reader=new BufferedReader(new FileReader(filename))){
+			String line;
+			System.out.println("File Content:");
+			while ((line=reader.readLine())!=null){
+				System.out.println(line);
+			}
+		}catch(IOException e){
+			System.out.println("An error occurred while reading the file.");
+			e.printStackTrace();
+		}
+	}
+}
+\end{lstlisting}
+
+\vspace{0.5cm}
+\textbf{Result}
+\vspace{0.5cm}
+
+The program was executed successfully. 
+
+When the filename along with operations selected is provided as input, the output is: reflected on the file.
+\begin{verbatim}
+Enter filename:
+test.txt
+
+File Operations Menu:
+1. Write to File
+2. Append to File
+3. Read from File
+4. Exit
+Choose an option: 1
+Enter text to write to file: hello
+Data written successfully.
+
+File Operations Menu:
+1. Write to File
+2. Append to File
+3. Read from File
+4. Exit
+Choose an option: 2
+Enter text to append to file: java
+Data appended successfully.
+
+File Operations Menu:
+1. Write to File
+2. Append to File
+3. Read from File
+4. Exit
+Choose an option: 3
+File Content:
+hellojava
+
+File Operations Menu:
+1. Write to File
+2. Append to File
+3. Read from File
+4. Exit
+Choose an option: 4
+Exiting program...
+
+\end{verbatim}
+

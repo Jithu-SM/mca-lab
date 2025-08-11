@@ -1,0 +1,119 @@
+% Experiment Template
+\textbf{Experiment No: 5 \hfill Date: 17/02/2025}
+\addcontentsline{toc}{section}{5. Find Product with Lowest Price} 
+
+\begin{center}
+    \Large \subsection*{Find Product with Lowest Price}
+\end{center}
+
+\textbf{Aim}
+\vspace{0.5cm}
+
+Write a Java program to define a class Product with data members pcode, pname, and price. Find and display the product with the lowest price.
+
+\vspace{0.5cm}
+\textbf{Algorithm}
+\vspace{0.5cm}
+\begin{verbatim}
+1. Start
+2. Define a class Product with attributes:
+    pcode (Product Code)
+    pname (Product Name)
+    price (Product Price)
+3. Create a constructor to initialize the attributes.
+4. Define a method getLowestPrice that takes an array of Product objects 
+   and finds the product with the lowest price.
+5. In the main method:
+    Create three Product objects.
+    Store them in an array.
+    Call getLowestPrice to determine the product with the lowest price.
+    Display the details of the product with the lowest price.
+6. Stop
+\end{verbatim}
+
+\vspace{0.5cm}
+\textbf{Source Code}
+\begin{lstlisting}[language=Java]
+import java.util.Scanner;
+public class Complex{
+	double real,imag;
+	public Complex(double real, double imag){
+		this.real=real;
+		this.imag=imag;
+	}
+	public Complex add(Complex other){
+		double real=this.real+other.real;
+		double imag=this.imag+other.imag;
+		Complex sum=new Complex(real,imag);
+		return sum;
+	}
+	public Complex multiply(Complex other){
+                double real=(this.real*other.real)-(this.imag*other.imag);
+                double imag=(this.real*other.imag)+(this.imag*other.real);
+                Complex pro=new Complex(real,imag);
+                return pro;
+	}
+	public void display(){
+		System.out.println(this.real+" + i"+this.imag);
+	}
+	public static void main(String args[]){
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter two complex numbers:");
+		System.out.println("Enter real part:");
+		double real1=s.nextDouble();
+		System.out.println("Enter imaginary part:");
+		double imag1=s.nextDouble();
+		Complex c1=new Complex(real1,imag1);
+		System.out.println("Enter real part:");
+                double real2=s.nextDouble();
+		System.out.println("Enter imaginary part:");
+                double imag2=s.nextDouble();
+		Complex c2=new Complex(real2,imag2);
+		Complex sum=c1.add(c2);
+		Complex pro=c1.multiply(c2);
+		System.out.print("Complex no 1: ");
+		c1.display();
+		System.out.print("Complex no 2: ");
+		c2.display();
+		System.out.print("Sum: ");
+		sum.display();
+		System.out.print("Product: ");
+		pro.display();
+	}
+}
+\end{lstlisting}
+
+\vspace{0.5cm}
+\textbf{Result}
+\vspace{0.5cm}
+
+The program was executed successfully. 
+
+When the 3 products were provided as input, the output was: Product with lowest price
+\begin{verbatim}
+Enter number of products: 
+3
+Enter product code of product 0: 
+a1
+Enter product name of product 0: 
+abc
+Enter price of product 0: 
+10
+Enter product code of product 1: 
+a2
+Enter product name of product 1: 
+def
+Enter price of product 1: 
+20
+Enter product code of product 2: 
+a3
+Enter product name of product 2: 
+ghi
+Enter price of product 2: 
+5
+Item with lowest Price : 
+Product code: a3
+Product name: ghi
+Price: 5.0
+\end{verbatim}
+

@@ -1,0 +1,52 @@
+% Experiment Template
+\textbf{Experiment No: 2 \hfill Date: 10/02/2025}
+\addcontentsline{toc}{section}{2. Sum of First n Natural Numbers} 
+
+\begin{center}
+    \Large \subsection*{Sum of First n Natural Numbers}
+\end{center}
+
+\textbf{Aim}
+\vspace{0.5cm}
+
+Write a Java program to compute the sum of the first n natural numbers.
+
+\vspace{0.5cm}
+\textbf{Algorithm}
+\vspace{0.5cm}
+\begin{verbatim}
+1. Start
+2. Take an integer n as input from the user.
+3. Use either a for loop or a while loop to compute the sum.
+4. Print the result.
+5. Stop
+\end{verbatim}
+
+\vspace{0.5cm}
+\textbf{Source Code}
+\begin{lstlisting}[language=Java]
+import java.util.Scanner;
+public class SumNatural{
+        public static void main(String args[]){
+                Scanner s=new Scanner(System.in);
+                System.out.print("Enter a number: ");
+                int sum=0,n;
+                n=s.nextInt();
+                for(int i=1;i<=n;i++) sum+=i;
+                System.out.println("Sum of first "+n+" number is "+sum);
+        }
+}
+\end{lstlisting}
+
+\vspace{0.5cm}
+\textbf{Result}
+\vspace{0.5cm}
+
+The program was executed successfully. 
+
+When the input "10" was provided, the output was: "Sum of first 10 number is 55"
+\begin{verbatim}
+Enter a number: 10
+Sum of first 10 number is 55
+\end{verbatim}
+

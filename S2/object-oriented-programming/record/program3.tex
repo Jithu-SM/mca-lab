@@ -1,0 +1,52 @@
+% Experiment Template
+\textbf{Experiment No: 3 \hfill Date: 10/02/2025}
+\addcontentsline{toc}{section}{3. Factorial of a Number} 
+
+\begin{center}
+    \Large \subsection*{Factorial of a Number}
+\end{center}
+
+\textbf{Aim}
+\vspace{0.5cm}
+
+Write a Java program to compute the factorial of a given number.
+
+\vspace{0.5cm}
+\textbf{Algorithm}
+\vspace{0.5cm}
+\begin{verbatim}
+1. Start
+2. Take an integer as input from the user.
+3. Compute the factorial using either a for loop or a while loop.
+4. Print the result.
+5. Stop
+\end{verbatim}
+
+\vspace{0.5cm}
+\textbf{Source Code}
+\begin{lstlisting}[language=Java]
+import java.util.Scanner;
+public class Factorial{
+        public static void main(String args[]){
+                Scanner s=new Scanner(System.in);
+                int fact=1,n;
+                System.out.print("Enter a number: ");
+                n=s.nextInt();
+                for(int i=1;i<=n;i++) fact*=i;
+                System.out.println(n+"!="+fact);
+        }
+}
+\end{lstlisting}
+
+\vspace{0.5cm}
+\textbf{Result}
+\vspace{0.5cm}
+
+The program was executed successfully. 
+
+When the input "5" was provided, the output was: "5!=120"
+\begin{verbatim}
+Enter a number: 5
+5!=120
+\end{verbatim}
+

@@ -1,0 +1,93 @@
+% Experiment Template
+\textbf{Experiment No: 7 \hfill Date: 17/02/2025}
+\addcontentsline{toc}{section}{7. Matrix Addition} 
+
+\begin{center}
+    \Large \subsection*{Matrix Addition}
+\end{center}
+
+\textbf{Aim}
+\vspace{0.5cm}
+
+Write a Java program to perform matrix addition.
+
+\vspace{0.5cm}
+\textbf{Algorithm}
+\vspace{0.5cm}
+\begin{verbatim}
+1. Start
+2. Take user input for the number of rows and columns of the matrices.
+3. Create two matrices (matrix1 and matrix2) and take user input for their 
+   elements.
+4. Check if matrix addition is possible (both matrices must have the same 
+   dimensions).
+5. Perform element-wise addition and store the result in resultMatrix.
+6. Display the resultant matrix.
+7. Stop
+\end{verbatim}
+
+\vspace{0.5cm}
+\textbf{Source Code}
+\begin{lstlisting}[language=Java]
+import java.util.Scanner;
+public class MatrixAddition{
+	public static void main(String args[]){
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter the number of rows and coloumns of first matrix: ");
+		int m1=s.nextInt();
+		int n1=s.nextInt();
+		int mat1[][]=new int[m1][n1];
+		System.out.println("Enter the first matrix: ");
+		for(int i=0;i<m1;i++){
+			for(int j=0;j<n1;j++) mat1[i][j]=s.nextInt();
+		}
+		System.out.println("Enter the number of rows and coloumns of second matrix: ");
+                int m2=s.nextInt();
+                int n2=s.nextInt();
+		int mat2[][]=new int[m2][n2];
+                System.out.println("Enter the second matrix: ");
+                for(int i=0;i<m2;i++){
+                        for(int j=0;j<n2;j++) mat2[i][j]=s.nextInt();
+                }
+		int sum[][]=new int[m1][n1];
+		if(m1==m2 && n1==n2){
+			for(int i=0;i<m1;i++){
+                        	for(int j=0;j<n1;j++) sum[i][j]=mat1[i][j]+mat2[i][j];
+			}
+			System.out.println("Sum: ");
+			for(int i=0;i<m1;i++){
+                		for(int j=0;j<n1;j++) System.out.print(sum[i][j]+"\t");
+				System.out.println();
+			}
+		}
+		else System.out.println("Addition is not possible.");
+	}
+}
+\end{lstlisting}
+
+\vspace{0.5cm}
+\textbf{Result}
+\vspace{0.5cm}
+
+The program was executed successfully. 
+
+When 2 matrices were provided as input, the output was: sum of the matrices
+\begin{verbatim}
+Enter the number of rows and coloumns of first matrix: 
+3	2
+Enter the first matrix: 
+1	2
+2	3
+3	4
+Enter the number of rows and coloumns of second matrix: 
+3	2 
+Enter the second matrix: 
+1	2
+3	4
+5	6
+Sum: 
+2	4	
+5	7	
+8	10
+\end{verbatim}
+

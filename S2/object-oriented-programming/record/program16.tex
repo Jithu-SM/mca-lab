@@ -1,0 +1,116 @@
+% Experiment Template
+\textbf{Experiment No: 16 \hfill Date: 17/03/2025}
+\addcontentsline{toc}{section}{16. System-Defined and User-Defined Exception for Authentication} 
+
+\begin{center}
+    \Large \subsection*{System-Defined and User-Defined Exception for Authentication}
+\end{center}
+
+\textbf{Aim}
+\vspace{0.5cm}
+
+Write a Java program that demonstrates both system-defined exceptions (such as FileNotFoundException and IOException) and user-defined exceptions for authentication failures. Implement a readFile(String filename) method that attempts to read a file and prints its contents while handling FileNotFoundException if the file does not exist and IOException for other input/output errors. Define a custom exception class AuthenticationException that extends Exception and create an authenticate(String username, String password) method to validate user credentials against predefined values (e.g., ”admin” with password ”admin123”), throwing an AuthenticationException if authentication fails. In the main method, prompt the user to enter a filename, attempt to read the file, then request login credentials, invoking authenticate() and handling exceptions using try-catch blocks to display appropriate error messages, ensuring meaningful feedback to the user.
+
+\vspace{0.5cm}
+\textbf{Algorithm}
+\vspace{0.5cm}
+\begin{verbatim}
+1. Start
+2. Prompt the user to enter the filename.
+3. Try to open the file in read mode.
+4. If the file exists:
+    Read and print its contents line by line.
+5. If the file does not exist, catch FileNotFoundException and display 
+   an error message.
+6. If an I/O error occurs, catch IOException and display an appropriate 
+   error message.
+7. Prompt the user to enter their username.
+8. Prompt the user to enter their password.
+9. Compare the entered credentials with predefined values (admin, 
+   admin123).
+10. If the credentials match:
+    Print "Authentication successful!"
+11. If the credentials do not match:
+    Throw a custom exception (AuthenticationException).
+    Catch the exception and display an error message.
+12. Stop
+\end{verbatim}
+
+\vspace{0.5cm}
+\textbf{Source Code}
+
+\begin{lstlisting}[language=Java]
+import java.io.*;
+import java.util.Scanner;
+class AuthenticationException extends Exception{
+	public AuthenticationException(String message){
+		super(message);
+	}
+}
+public class ExceptionHandlingDemo{
+	private static final String USERNAME="admin";
+	private static final String PASSWORD = "admin123";
+	public static void main(String args[]){
+		Scanner s=new Scanner(System.in);
+		System.out.print("Enter the filename to read: ");
+		String filename=s.next();
+		readFile(filename);
+		System.out.print("Enter username: ");
+		String username=s.next();
+		System.out.print("Enter password: ");
+		String password=s.next();
+		try{
+			authenticate(username,password);
+			System.out.println("Authentication successful! Access granted.");
+		}catch(AuthenticationException e){
+			System.out.println("Authentication failed: "+e.getMessage());
+		}
+	}
+	public static void readFile(String filename){
+		try(BufferedReader reader=new BufferedReader(new FileReader(filename))){
+			String line;
+			System.out.println("\nFile Contents:");
+			while ((line=reader.readLine())!=null){
+				System.out.println(line);
+			}
+		}catch(FileNotFoundException e){
+			System.out.println("Error: File '"+filename+"' not found.");
+		}catch(IOException e){
+			System.out.println("Error reading the file: "+e.getMessage());
+		}
+	}
+	public static void authenticate(String username, String password) throws AuthenticationException{
+		if (!username.equals(USERNAME) || !password.equals(PASSWORD)){
+			throw new AuthenticationException("Invalid username or password.");
+		}
+	}
+}
+\end{lstlisting}
+
+\vspace{0.5cm}
+\textbf{Result}
+\vspace{0.5cm}
+
+The program was executed successfully. 
+
+When the filename, username, and password are provided as input, the output is: file content with a successful message when the filename exists and credentials were right, and when the file doesn't exist and credentials were wrong, it was a corresponding error message.
+\begin{verbatim}
+Enter the filename to read: test.txt
+
+File Contents:
+hellojava
+Enter username: admin
+Enter password: admin123
+Authentication successful! Access granted.
+
+
+
+Enter the filename to read: abc.txt
+
+Error: File 'abc.txt' not found.
+Enter username: java
+Enter password: java123
+Authentication failed: Invalid username or password.
+
+\end{verbatim}
+
